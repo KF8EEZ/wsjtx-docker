@@ -23,3 +23,14 @@ cat /proc/asound/cards
 ```
 
 In my case the last one appears/disappears when I plug/unplg the audio cable. It's name is `Device` so I looked for that in the wsjtx list of audio devices. 
+
+![sound settings that work](wjstx-audio-settings.png)
+
+you can adjust the sound levels with `alsamixer` on the command line.
+
+## radio setting
+
+my radio is a Yaesu FT-891. To use the data cable with a usb adaptor, make sure that you set the mic input to the rear input. 
+
+
+https://www.n4nrv.org/hints-and-kinks-of-the-yaesu-ft-891/
