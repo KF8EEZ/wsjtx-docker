@@ -1,0 +1,20 @@
+## CAT
+
+Bus 007 Device 010: ID 10c4:ea70 Silicon Labs CP2105 Dual UART Bridge
+associated with /dev/USB0 and /dev/USB1 - why 2 ?
+
+[380611.605801] usb 7-1.4: new full-speed USB device number 9 using xhci_hcd
+[380611.768916] usb 7-1.4: New USB device found, idVendor=10c4, idProduct=ea70, bcdDevice= 1.00
+[380611.768929] usb 7-1.4: New USB device strings: Mfr=1, Product=2, SerialNumber=5
+[380611.768933] usb 7-1.4: Product: CP2105 Dual USB to UART Bridge Controller
+[380611.768936] usb 7-1.4: Manufacturer: Silicon Labs
+[380611.768939] usb 7-1.4: SerialNumber: 01BBC57D
+[380611.773575] cp210x 7-1.4:1.0: cp210x converter detected
+[380611.786368] usb 7-1.4: cp210x converter now attached to ttyUSB0
+[380611.788676] cp210x 7-1.4:1.1: cp210x converter detected
+[380611.801595] usb 7-1.4: cp210x converter now attached to ttyUSB1
+
+
+## AUDIO
+
+Bus 001 Device 010: ID 0d8c:0014 C-Media Electronics, Inc. Audio Adapter (Unitek Y-247A)
