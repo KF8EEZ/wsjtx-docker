@@ -14,15 +14,19 @@ RUN apt-get install -y build-essential gfortran asciidoctor libfftw3-dev qtdecla
 
 RUN mkdir /hamlib 
 WORKDIR /hamlib
-RUN git clone https://github.com/Hamlib/Hamlib.git src
+RUN git clone --depth=1 https://github.com/Hamlib/Hamlib.git src
 RUN cd src && ./bootstrap && mkdir ../build && cd ../build && \
  ../src/configure --prefix=$HOME/hamlib-prefix    --disable-shared --enable-static    --without-cxx-binding --disable-winradio    CFLAGS="-g -O2 -fdata-sections -ffunction-sections"  LDFLAGS="-Wl,--gc-sections" && \
  make -j4 &&  make install-strip && cd ../../
 
 RUN mkdir /wsjtx
 WORKDIR /wsjtx
-RUN git clone https://git.code.sf.net/p/wsjt/wsjtx wsjt-wsjtx 
+RUN git clone --depth=1 https://git.code.sf.net/p/wsjt/wsjtx wsjt-wsjtx 
 RUN mkdir build && mkdir output && cd build && cmake -D CMAKE_PREFIX_PATH=~/hamlib-prefix -D CMAKE_INSTALL_PREFIX=/wsjtx/output ../wsjt-wsjtx/ &&  cmake --build . -- -j4 && cmake --build . --target install
+
+# add alsa tools
+RUN apt update && \
+    apt install -y  libasound2-dev alsa-utils
 
 # RUN groupadd -g 1000 user
 # RUN useradd -ms /bin/bash -u 1000 -g user user
