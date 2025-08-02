@@ -34,3 +34,10 @@ my radio is a Yaesu FT-891. To use the data cable with a usb adaptor, make sure 
 
 
 https://www.n4nrv.org/hints-and-kinks-of-the-yaesu-ft-891/
+
+
+## Maidenhead lookup
+
+The location setting is the maidenhead grid coordinates, they can be found here:
+https://www.levinecentral.com/ham/grid_square.php
+
