@@ -30,11 +30,17 @@ you can adjust the sound levels with `alsamixer` on the command line.
 
 ## radio setting
 
+### Yaesu FT-891
+
 my radio is a Yaesu FT-891. To use the data cable with a usb adaptor, make sure that you set the mic input to the rear input. 
 
 
 https://www.n4nrv.org/hints-and-kinks-of-the-yaesu-ft-891/
 
+### RTL-SDR
+
+I have not tried this, it's another person's example
+https://jeremyclark.ca/wp/telecom/rtl-sdr-for-wsjt-x-wspr/
 
 ## Maidenhead lookup
 
