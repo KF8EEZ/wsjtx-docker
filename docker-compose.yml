@@ -1,7 +1,7 @@
 version: "3.9"
 
 services:
-  develop:
+  wsjtx:
     init: true
     environment:
       DISPLAY:
@@ -10,7 +10,8 @@ services:
       dockerfile: Dockerfile
     user: 0:0
     #image: ghcr.io/kf8eez/wjstx
-    image: wsjtx:newver
+    #image: wsjtx:newver
+    image: ghcr.io/kf8eez/amd64/wsjtx:latest
     volumes:
       # passing through this file allows opening windows from the container in your host computer
       - "/tmp/.X11-unix:/tmp/.X11-unix:rw"
