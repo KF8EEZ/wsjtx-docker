@@ -3,6 +3,7 @@ version: "3.9"
 services:
   wsjtx:
     init: true
+    platform: linux/arm64
     environment:
       DISPLAY:
     build:
