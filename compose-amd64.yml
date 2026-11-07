@@ -26,5 +26,6 @@ services:
      
     privileged: true
     command:
-      - /bin/bash
+      - /wsjtx/build/wsjtx
+      # - /bin/bash
     working_dir: /opt/project
