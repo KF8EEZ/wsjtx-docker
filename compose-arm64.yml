@@ -6,26 +6,32 @@ services:
     platform: linux/arm64
     environment:
       DISPLAY:
+      XAUTHORITY: /root/.Xauthority
     build:
       context: .
       dockerfile: Dockerfile
     user: 0:0
     #image: ghcr.io/kf8eez/wjstx
     #image: wsjtx:newver
-    image: ghcr.io/kf8eez/arm64/wsjtx:latest
+    image: wsjtx:arm64
     volumes:
       # passing through this file allows opening windows from the container in your host computer
       - "/tmp/.X11-unix:/tmp/.X11-unix:rw"
+      # X auth cookie, needed for SSH-forwarded displays (DISPLAY=localhost:N.0)
+      - "$HOME/.Xauthority:/root/.Xauthority:ro"
       - "$PWD:/opt/project"
       - "$PWD/config:/root/.config"
       - "$PWD/log:/root/.local/share"
     network_mode: "host"
     devices:
-      #- "/dev/ttyUSB0:/dev/ttyUSB0"
-      #- "/dev/ttyUSB1:/dev/ttyUSB1"
+      - "/dev/ttyUSB0:/dev/ttyUSB0"
+      - "/dev/ttyUSB1:/dev/ttyUSB1"
       - "/dev/snd:/dev/snd"
      
+    # rootless podman: keep host groups (dialout) so the container can open /dev/ttyUSB*
+    group_add:
+      - keep-groups
     privileged: true
     command:
-      - /bin/bash
+      - /wsjtx/output/bin/wsjtx
     working_dir: /opt/project
